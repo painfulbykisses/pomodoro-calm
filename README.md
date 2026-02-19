@@ -2,7 +2,9 @@
 
 A beautiful, Apple-style Pomodoro timer application built with React, TypeScript, and Vite. Designed for focus and clarity.
 
-![Pomodoro Calm Preview](https://via.placeholder.com/800x450.png?text=Pomodoro+Calm+App)
+**🚀 [Live Demo](https://pomodoro-calm.vercel.app/)**
+
+![Pomodoro Calm Preview](preview.png)
 
 ## ✨ Features
 
