@@ -180,6 +180,8 @@ h6 {
 /* Layout Utilities */
 .app-container {
   width: 100%;
+  max-width: 480px; /* Constrain to mobile width */
+  margin: 0 auto; /* Center on desktop */
   min-height: 100vh;
   min-height: 100dvh;
   color: var(--text-primary);
@@ -187,89 +189,72 @@ h6 {
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-bottom: 120px; /* Space for floating control */
+  box-shadow: 0 0 50px rgba(0,0,0,0.1); /* Subtle shadow on desktop */
 }
 
+/* Force dark mode background on body if we want the sides to be dark on desktop, 
+   but let's just let it be transparent and rely on the Background component */
+
 .split-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100%;
+  display: flex;
+  flex-direction: column; /* Force portrait single-column */
+  height: auto;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .split-panel {
-  padding: var(--spacing-xl);
+  padding: var(--spacing-md);
   background-color: transparent;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .split-panel-left {
-  justify-content: center;
+  /* No special styles needed now */
 }
 
 .split-panel-right {
-  justify-content: center;
   align-items: stretch;
   position: relative;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .app-container {
-    height: 100%;
-    min-height: 100vh;
-    overflow-y: auto;
-    padding-bottom: 120px;
-  }
-
-  .split-layout {
-    grid-template-columns: 1fr;
-    height: auto;
-    overflow: visible;
-  }
-
-  .split-panel {
-    padding: var(--spacing-md);
-    justify-content: flex-start;
-  }
-
-  .calendar-strip {
-    justify-content: flex-start !important;
-    overflow-x: auto;
-    padding-bottom: 8px;
-  }
-
-  .calendar-strip > div,
-  .calendar-strip > button {
-    flex-shrink: 0;
-  }
-
-  .floating-wrapper {
-    bottom: 20px !important;
-    width: 90% !important;
-  }
-
-  .floating-control-card {
-    padding: 12px 16px !important;
-    gap: 12px !important;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .floating-start-text {
-    display: none !important;
-  }
+.calendar-strip {
+  justify-content: flex-start !important;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  /* Hide scrollbar for cleaner look */
+  scrollbar-width: none;
+}
+.calendar-strip::-webkit-scrollbar {
+  display: none;
 }
 
+.calendar-strip > div,
+.calendar-strip > button {
+  flex-shrink: 0;
+}
+
+/* Floating Control */
 .floating-wrapper {
   position: fixed;
-  bottom: 40px;
+  bottom: 20px !important;
   left: 50%;
-  width: auto;
+  transform: translateX(-50%); /* Center it exactly */
+  width: 90% !important;
+  max-width: 430px; /* Keep it within the 480px container */
+  z-index: 100;
 }
 
 .floating-control-card {
-  padding: 12px 24px;
-  gap: 20px;
+  padding: 12px 16px !important;
+  gap: 12px !important;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.floating-start-text {
+  display: none !important;
 }
