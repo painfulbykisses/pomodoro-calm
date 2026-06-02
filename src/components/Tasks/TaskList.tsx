@@ -152,7 +152,7 @@ export const TaskList = ({ selectedDate, setSelectedDate }: TaskListProps) => {
                                         outline: 'none'
                                     }}
                                 />
-                                <div style={{ display: 'flex', gap: '8px' }}>
+                                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                                     <select
                                         value={priority}
                                         onChange={(e) => setPriority(e.target.value)}

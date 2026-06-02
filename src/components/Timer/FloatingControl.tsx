@@ -50,16 +50,12 @@ export const FloatingControl = ({ theme, toggleTheme, timeLeft, isActive, toggle
             initial={{ y: 100, x: '-50%', opacity: 0 }}
             animate={{ y: 0, x: '-50%', opacity: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="floating-wrapper"
             style={{
-                position: 'fixed',
-                bottom: '40px',
-                left: '50%',
-                // transform handled by motion prop 'x'
                 zIndex: 100,
                 display: 'flex',
                 alignItems: 'center',
                 gap: '16px',
-                width: 'auto'
             }}
         >
             {/* Duration Picker Popup */}
@@ -99,12 +95,10 @@ export const FloatingControl = ({ theme, toggleTheme, timeLeft, isActive, toggle
                 )}
             </AnimatePresence>
 
-            <div className="card" style={{
+            <div className="card floating-control-card" style={{
                 borderRadius: '50px',
-                padding: '12px 24px', // More comfortable padding
                 display: 'flex',
                 alignItems: 'center',
-                gap: '20px',
                 boxShadow: 'var(--shadow-focus)',
                 border: '1px solid var(--border-color)',
                 backgroundColor: theme === 'dark' ? 'rgba(39, 39, 42, 0.8)' : 'rgba(255, 255, 255, 0.8)', // Glassmorphism
@@ -158,7 +152,7 @@ export const FloatingControl = ({ theme, toggleTheme, timeLeft, isActive, toggle
                     }}
                 >
                     {isActive ? <Pause size={20} fill="currentColor" /> : <Play size={20} fill="currentColor" />}
-                    <span style={{ minWidth: '80px', textAlign: 'left' }}>
+                    <span className="floating-start-text" style={{ minWidth: '80px', textAlign: 'left' }}>
                         {isActive ? (mode === 'focus' ? 'FOCUSING' : 'BREAK') : 'START SESSION'}
                     </span>
                 </button>
