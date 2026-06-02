@@ -34,15 +34,7 @@ const MainApp = () => {
   }
 
   return (
-    <div style={{
-      width: '100%',
-      height: '100vh',
-      // Background handled by Background component
-      color: 'var(--text-primary)',
-      transition: 'color 0.4s ease',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <div className="app-container">
       <Background theme={state.theme} />
       <TopBar />
       <SplitLayout>

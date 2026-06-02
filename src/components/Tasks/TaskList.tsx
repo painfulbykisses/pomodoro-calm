@@ -41,7 +41,7 @@ export const TaskList = ({ selectedDate, setSelectedDate }: TaskListProps) => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {/* Calendar Strip (Reference Style) */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <div className="calendar-strip" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <button className="btn btn-ghost" onClick={() => setSelectedDate(subDays(selectedDate, 7))}>
                     <ChevronLeft size={20} color="var(--text-secondary)" />
                 </button>
